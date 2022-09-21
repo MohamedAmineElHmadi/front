@@ -1,0 +1,48 @@
+<br>
+<br>
+<div class="container-fluid">
+<div class="col-lg-12">
+  <div class="card">
+    <div class="card-header">
+      <h3 class="title"> Users Info</h3>
+    </div>
+    <div class="card-body">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">First name</th>
+            <th scope="col">Lastname</th>
+            <th scope="col">Email</th>
+            <th>role</th>
+            <th>status</th>
+            <th scope="col">more Details</th>
+            <th scope="col">delete</th>
+
+          </tr>
+        </thead>
+
+        <tbody *ngFor="let u of listUser" >
+          <tr>
+            <td>{{u.firstName}}</td>
+            <td>{{u.lastName}}</td>
+            <td>{{u.email}}</td>
+            <td>{{u.role}}</td>
+            <td >
+              <span *ngIf="u.enabled === true" class="badge badge-success">allowable</span>
+              <span *ngIf="u.enabled === false" class="badge badge-danger">blocked</span>
+            </td>
+
+            <th><a  class="btn btn-primary action-btn" (click)="detail(u.id)" ><i class="icon-eye"></i></a></th>
+            <th><a  class="btn btn-warning action-btn" (click)="delete(u.id)" ><i class="icon-trash"></i></a></th>
+
+
+
+
+          </tr>
+              </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+</div>

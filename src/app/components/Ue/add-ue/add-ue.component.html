@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="return-button">  <input type="button" class="btn btn-outline-secondary" routerLink="/UE" value="return">
+  </div>
+
+  <div class="card">  
+    <div class="card-body">
+      <form action="" method="post" class="form-horizontal">
+        <div class="form-inputs clearfix">
+          <p><label for="ue-libelle">UE Name<span class="required" style="color:red"> *</span></label>
+          <input name="title" [(ngModel)]="ue.libelle" id="ue-libelle" class="form-control the-title" type="text" autocomplete="off">
+          <span class="form-description">Please enter the UE name.</span></p>
+        </div>
+      </form>   
+    </div>
+    <div>
+      <input type="submit" class="btn btn-sm btn-dark" (click)="postUe()" [disabled]="ue.libelle===undefined|| ue.libelle===''">
+      <input type="reset" class="btn btn-sm btn-danger" (click)="reset()" >
+    </div>
+</div>
+

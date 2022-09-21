@@ -1,0 +1,16 @@
+<br>
+<h2 style="text-align: center;">All options</h2>
+<br>
+<br>
+<div  class="options-card">
+<div *ngFor="let o of options">
+<div class="card  mb-3 single-option" style="max-width: 18rem;">
+  <div class="card-header">{{o.libelle}}</div>
+  <div class="card-body ">
+    <h5 class="card-title">{{o.discription}}</h5>
+  </div>
+  <div class="card-footer">
+    <a  class="btn btn-warning action-btn"  ><i class="icon-eye"></i></a>
+    <a  class="btn btn-danger action-btn" (click)="delete(o.idOption)" ><i class="icon-trash"></i></a>
+  </div>
+</div>

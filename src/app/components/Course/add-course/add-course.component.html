@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="card">
+      <div class="card-header">
+        <strong>Add Course</strong> 
+      </div>
+<div class="card-body">
+  <input  type="button" class="btn btn-success" routerLink="/Courses" value="return">
+    <form action="" method="post" class="form-horizontal">
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="course-name">Course Name</label>
+        <div class="col-md-9">
+          <input type="text" [(ngModel)]="cours.libelle" #t="ngModel" id="course-name" name="course-name"
+           class="form-control" placeholder="Enter Course.."  autocomplete="off">
+          <span class="help-block">Please enter the course name </span>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="card-footer">
+    <input type="submit" class="btn btn-sm btn-primary" (click)="postCourse()">
+    <input type="reset" class="btn btn-sm btn-danger" (click)="reset()">
+  </div>
+</div>

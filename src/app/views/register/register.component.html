@@ -1,0 +1,165 @@
+<div class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card mx-4">
+            <div class="card-body p-4">
+              <form #f="ngForm">
+                <h1>Register</h1>
+                <p class="text-muted">Create your account</p>
+
+
+
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                    ><i class="icon-user"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Firstname"
+                    name="firstname"
+                    [(ngModel)]="user.firstName"
+                    required
+                    pattern="[a-zA-Z]+$"
+                    #fn="ngModel"
+                  />
+                </div>
+                <div class="alert alert-danger" *ngIf="fn.invalid && fn.touched ">
+                  <div  *ngIf="fn.errors.required">Firstname is required</div>
+                  <div  *ngIf="fn.errors.pattern">Firstname must contain just letters</div>
+
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                    ><i class="icon-user"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Lastname"
+                    name="lastname"
+                    [(ngModel)]="user.lastName"
+                    required
+                    pattern="[a-zA-Z]+$"
+                    #ln="ngModel"
+                  />
+                </div>
+                <div class="alert alert-danger" *ngIf="ln.invalid && ln.touched ">
+                  <div  *ngIf="ln.errors.required">Last name is required</div>
+                  <div  *ngIf="ln.errors.pattern">Last name must contain just letters</div>
+
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">@</span>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Email"
+                    autocomplete="email"
+                    name="email"
+                    [(ngModel)]="user.email"
+                    required
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                    #e="ngModel"
+                  />
+                </div>
+                <div class="alert alert-danger" *ngIf="e.invalid && e.touched ">
+                  <div  *ngIf="e.errors.required">Email is required</div>
+                  <div  *ngIf="e.errors.pattern">Invalid email</div>
+
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                    ><i class="icon-lock"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Password"
+                    name="password"
+                    [(ngModel)]="user.password"
+                    required
+                    pattern=".{5,}"
+                    #p="ngModel"
+                  />
+                </div>
+                <div class="alert alert-danger" *ngIf="p.invalid && p.touched ">
+                  <div  *ngIf="p.errors.required">Password is required</div>
+                  <div  *ngIf="p.errors.pattern">Password must contain at least 5 caracters </div>
+
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                    ><i class="icon-emotsmile"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="gender"
+                    name="gender"
+                    [(ngModel)]="user.gender"
+                    required
+                  />
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                    ><i class="icon-phone"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="phone"
+                    name="phone"
+                    [(ngModel)]="user.phone"
+                    required
+                    pattern="^[1-9][0-9]{7}$"
+                    #ph="ngModel"
+                  />
+                </div>
+                <div class="alert alert-danger" *ngIf="ph.invalid && ph.touched ">
+                  <div  *ngIf="ph.errors.required">Phone is required</div>
+                  <div  *ngIf="ph.errors.pattern">Phone must contain  8 number </div>
+
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                    ><i class="icon-home"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="address"
+                    name="address"
+                    required
+                    [(ngModel)]="user.address"
+
+                  />
+                </div>
+                <button type="button" class="btn btn-block btn-success" [disabled]="f.invalid" (click)="save()">
+                  Create Account
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

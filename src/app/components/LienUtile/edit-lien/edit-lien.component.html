@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="return-button">  <input type="button" class="btn btn-outline-secondary" routerLink="/lienUtile" value="return"></div>
+    <div class="card">
+<div class="card-body">
+    <form action="" method="post" class="form-horizontal">
+      <div class="form-inputs clearfix">
+        <p><label for="ue-libelle"> Useful Link Name<span class="required" for="lienUtile-name" style="color:red"> *</span></label>
+          <input type="text" [(ngModel)]="lienUtile.libelle" #t="ngModel" id="lienUtile-name" name="lienUtile-name"
+           class="form-control" placeholder="Enter Course.."  autocomplete="off" >
+          <span class="help-block">Please enter the useful link name </span>
+      </div>
+      <div class="form-inputs clearfix">
+        <p><label for="ue-libelle">Link<span class="required" for="lien-content" style="color:red"> *</span></label>
+          <input type="text"  [(ngModel)]="lienUtile.content" #a="ngModel" id="lien-content" 
+          name="lien-content" class="form-control" placeholder="Enter lien-content.."  autocomplete="off">
+          <span class="help-block">Please enter the content</span>
+      </div>
+    </form>
+    <div class="form-group select">
+      <label for="sel1">Select Course:</label>
+      <select  class="form-control" id="sel1" 
+      [(ngModel)]="idCourse" (change)="somethingChanged()">
+        <option *ngFor="let c of list" [ngValue]="c.idCours" > {{c.libelle}}</option>
+      </select>
+    </div> 
+  </div>
+  <div>
+    <button  class="btn btn-sm btn-dark" (click)="updateLien()" [disabled]="!idCourse ||lienUtile.content=='' ||lienUtile.libelle==''" > Submit</button>   
+     <input type="reset" class="btn btn-sm btn-danger" (click)="reset()">
+  </div>
+</div>

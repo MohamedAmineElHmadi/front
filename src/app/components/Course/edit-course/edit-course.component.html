@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="return-button">  <input type="button" class="btn btn-outline-secondary" routerLink="/Courses" value="return"></div>
+    <div class="card">
+<div class="card-body">
+    <form action="" method="post" class="form-horizontal" #f="ngForm">
+      <div class="form-inputs clearfix">
+        <p><label for="ue-libelle">Course Name<span class="required" for="course-name" style="color:red"> *</span></label>
+          <input type="text" [(ngModel)]="cours.libelle"  id="course-name" name="course-name" required class="form-control the-title"  
+            placeholder="Enter Course name .."  autocomplete="off" >
+          <span class="form-description">Please enter the course name </span>
+      </div>
+    </form>
+      <div class="form-inputs clearfix">
+        <p><label for="ue-libelle">Select UE<span class="required" for="course-name" style="color:red"> *</span></label>
+        <select  class="form-control" id="sel1" 
+        [(ngModel)]="idUe">
+          <option *ngFor="let lu of list" [ngValue]="lu.idUE" > {{lu.libelle}}</option>
+        </select>
+      </div> 
+  </div>
+  <div>
+    <button  class="btn btn-sm btn-dark" (click)="updateCours()" [disabled]="!idUe||cours.libelle==''">Submit</button>
+    <input type="reset" class="btn btn-sm btn-danger" (click)="reset()">
+  </div>
+
+</div>
